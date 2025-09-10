@@ -2,7 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: 'standalone',       // Next 13+ için
+  output: "standalone", // Next 13+ için
   poweredByHeader: false,
 };
 

@@ -1,12 +1,25 @@
 import { Star } from "lucide-react";
 import { Product } from "../page";
 
+// false deyince 404'e düşürüyor 
+export const dynamicParams = false 
+
 const getProduct = async (id: string): Promise<Product> => {
   const API_URL = "https://fakestoreapi.com/products/" + id;
   const res = await fetch(API_URL);
   const product = await res.json();
   return product;
 };
+
+export async function generateStaticParams() {
+  const API_URL = "https://fakestoreapi.com/products/";
+  const res = await fetch(API_URL);
+  const products = (await res.json()) as Product[];
+
+  return products.map((product) => ({
+    id: product.id.toString(),
+  }));
+}
 
 type Props = {
   params: Promise<{ id: string }>;
