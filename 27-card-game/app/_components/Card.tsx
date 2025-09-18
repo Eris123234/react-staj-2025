@@ -1,3 +1,6 @@
+import { useDrag } from "@use-gesture/react";
+import { useState } from "react";
+
 type Props = {
   className?: string;
   children?: React.ReactNode;
@@ -6,10 +9,60 @@ type Props = {
 };
 
 const Card = (props: Props) => {
+  const [style, setStyle] = useState<React.CSSProperties>({});
+  const [removed, setRemoved] = useState(false);
+
+  const bind = useDrag(
+    ({ down, movement: [mx, my], velocity: [vx, vy], direction: [dx, dy] }) => {
+      // Başlangıçta hareket ediyorsa className gibi state ile kontrol edebilirsin
+      if (down) {
+        const xMulti = mx * 0.03;
+        const yMulti = my / 80;
+        const rotate = xMulti * yMulti;
+
+        setStyle({
+          transform: `translate(${mx}px, ${my}px) rotate(${rotate}deg)`,
+        });
+      } else {
+        // bırakma anı (panend)
+        const moveOutWidth = window.innerWidth;
+        const keep = Math.abs(mx) < 80 || Math.abs(vx) < 0.5;
+
+        if (keep) {
+          // eski yerine dönsün
+          setStyle({ transform: "" });
+        } else {
+          // ekran dışına fırlat
+          const endX = Math.max(Math.abs(vx) * moveOutWidth, moveOutWidth);
+          const toX = mx > 0 ? endX : -endX;
+          const endY = Math.abs(vy) * moveOutWidth;
+          const toY = my > 0 ? endY : -endY;
+
+          const xMulti = mx * 0.03;
+          const yMulti = my / 80;
+          const rotate = xMulti * yMulti;
+
+          setStyle({
+            transform: `translate(${toX}px, ${
+              toY + my
+            }px) rotate(${rotate}deg)`,
+          });
+
+          setRemoved(true); // removed class eklenebilir
+        }
+      }
+    }
+  );
+
+  if (removed) return null; // kart silinsin istiyorsan
+
   return (
     <div
-      style={props.style}
-      className="absolute flex flex-1 h-3/4 mt-16 select-none  bg-white rounded-3xl border-1 border-slate-400/20 shadow-2xl shadow-black/10"
+      {...bind()}
+      style={{ ...props.style, ...style }}
+      className={`absolute flex flex-1 h-3/4 mt-16 select-none  bg-white rounded-3xl border-1 border-slate-400/20 shadow-2xl shadow-black/10 ${
+        removed && "removed"
+      }`}
     >
       <div className="flex flex-col justify-between gap-4 px-8 py-12 ">
         <div className="">
